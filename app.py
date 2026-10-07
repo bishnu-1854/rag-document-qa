@@ -6,7 +6,6 @@ st.set_page_config(page_title="Document Q&A", page_icon="📄")
 st.title("📄 Document Q&A with Citations")
 st.caption("Upload a PDF, ask a question, and get an answer with page references.")
 
-# Access code so only people you share it with can use the app
 access_code = st.secrets.get("ACCESS_CODE", "")
 if access_code:
     entered = st.sidebar.text_input("Access code", type="password")
@@ -33,7 +32,7 @@ if file:
     question = st.text_input("Ask a question about the document")
     if question:
         with st.spinner("Thinking..."):
-           hits = search(st.session_state.index, st.session_state.chunks, question, k=6)
+            hits = search(st.session_state.index, st.session_state.chunks, question, k=6)
             st.markdown(answer(client, question, hits))
         with st.expander("Sources used"):
             for h in hits:
