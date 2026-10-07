@@ -2,7 +2,7 @@
 
 Upload a PDF, ask a question, and get an answer with page references. Built with Streamlit, FAISS, fastembed embeddings, and the Gemini API.
 
-**Live demo:** https://rag-document-app-pvzclgkmsu7cyc298ew4sn.streamlit.app/(access code: ask me, or see below)
+**Live demo:** https://rag-document-app-pvzclgkmsu7cyc298ew4sn.streamlit.app/(access code: DIYA10022025)
 
 ![App screenshot](screenshot.png)
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 ```
 Create `.streamlit/secrets.toml`:
 ```toml
-GEMINI_API_KEY = "your-key"
+GEMINI_API_KEY = ""
 ACCESS_CODE = "your-code"
 ```
 ```bash
