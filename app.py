@@ -21,7 +21,7 @@ file = st.file_uploader("Upload a PDF", type="pdf")
 if file:
     if st.session_state.get("file_name") != file.name:
         with st.spinner("Reading and indexing your document..."):
-            chunks = chunk(load_pdf(file))
+            chunks = chunk(load_pdf(file), size=400, overlap=80)
             if not chunks:
                 st.error("No text found. This may be a scanned PDF.")
                 st.stop()
@@ -33,7 +33,7 @@ if file:
     question = st.text_input("Ask a question about the document")
     if question:
         with st.spinner("Thinking..."):
-            hits = search(st.session_state.index, st.session_state.chunks, question)
+           hits = search(st.session_state.index, st.session_state.chunks, question, k=6)
             st.markdown(answer(client, question, hits))
         with st.expander("Sources used"):
             for h in hits:
